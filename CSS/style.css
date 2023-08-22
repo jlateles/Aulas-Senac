@@ -5,6 +5,7 @@ body {
 }
 p{
 	color: #DAA520;
+	font-size: 20px;
 }
 
 #maisimportante{
@@ -12,7 +13,7 @@ p{
 	background-color: #FFDEAD;
 	border: 1px solid black;
 	border-radius: 8px;
-	padding: 20px;
+	padding: 25px;
 }
 
 h2, h3 {
@@ -26,5 +27,5 @@ a{
 .texto1{
 	color:black;
 	font-family: 'Inter', sans-serif;
-	font-size: 20px;
+	font-size: 16px;
 }
