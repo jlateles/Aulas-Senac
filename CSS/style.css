@@ -1,0 +1,22 @@
+body {
+	background: #F5F5F5;
+}
+p{
+color: #DAA520;
+}
+
+#maisimportante{
+color: red;
+}
+
+h2, h3 {
+	color: brown;
+}
+
+a{
+	color: #8B4513;
+}
+
+.texto1{
+	color:black;
+}
