@@ -1,6 +1,6 @@
 using System;
 
-public class While
+public class for
 {
     public static void Main(string[] args)
     {
