@@ -1,4 +1,22 @@
 -- orientação a objetos
-    - é um modelo de programação/paradigma que consiste em representar objetos do mundo real.
+    é um modelo de programação/paradigma que consiste em representar objetos do mundo real.
 
 -- classes
+    
+    a classe contém as definições do objeto que deseja instanciar/representar:
+        - atributos
+        - métodos (verbos) ações
+    
+    as classes podem ser e ter membros ESTÁTICOS (não é necessário instanciar)
+
+// notificadores de acesso: get, set //
+
+-- objetos 
+    é a instância da classe, ou seja, o objeto vai dar vida à classe
+
+-- void e return, diferenças 
+    
+    ~ o método void não retorna nada, ele é usado para atualização de campos, valores, propriedades.
+
+    ~ return: um método de produz uma saída, um retorno
+    o return deve ser do mesmo tipo da assinatura do método
