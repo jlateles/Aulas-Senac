@@ -9,7 +9,7 @@ namespace AulaUdemy{
             Ducha objetoDucha = new Ducha {};
             objetoDucha.Material = "plástico";
             objetoDucha.Cor = "branca";
-            objetoDucha.Tamanho = "15cm";
+            objetoDucha.Tamanho = "15";
             objetoDucha.Potencia = "220";
 
             objetoDucha.Jorrar();
