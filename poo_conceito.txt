@@ -20,3 +20,15 @@
 
     ~ return: um método de produz uma saída, um retorno
     o return deve ser do mesmo tipo da assinatura do método
+
+
+-- construtores 
+
+    2 TIPOS:
+
+        - PADRÃO: não necissta de argumentos na inicialização. toda classe possui um e nao precisa obrigatoriamente declarado
+
+        - COM ARGUMENTOS: inicia o objeto já com valores pré-definidos. se for utilizado precisa estar declarado na classe. 
+
+- uso da palavra new 
+
