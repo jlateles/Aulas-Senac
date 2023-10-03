@@ -11,15 +11,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Defina o tamanho máximo da agência
+        // Definindo o tamanho máximo da agência
         const int tamanhoAgencia = 10;
 
-        // Crie um array para armazenar os clientes
+        // Criando um array para armazenar os clientes
         Cliente[] clientes = new Cliente[tamanhoAgencia];
 
-        // Inicialize alguns clientes
-        clientes[0] = new Cliente { Nome = "João", NumeroConta = 1001, Saldo = 1000.0 };
-        clientes[1] = new Cliente { Nome = "Maria", NumeroConta = 1002, Saldo = 1500.0 };
+        // Inicializando alguns clientes
+        clientes[0] = new Cliente { Nome = "Júlia", NumeroConta = 1001, Saldo = 1000.0 };
+        clientes[1] = new Cliente { Nome = "Pedro", NumeroConta = 1002, Saldo = 1500.0 };
 
         int numClientes = 2; // Número atual de clientes na agência
 
