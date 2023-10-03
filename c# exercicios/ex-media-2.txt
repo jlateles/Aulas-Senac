@@ -1,0 +1,28 @@
+using System;
+
+class Program {
+    static void Main(){
+        
+        Console.WriteLine("Digite seu nome: ");
+        string nome = Console.ReadLine();
+        
+        Console.WriteLine("Insira a primeira nota: ");
+        double num1 = double.Parse(Console.ReadLine());
+        Console.WriteLine("Insira a segunda nota: ");
+        double num2 = double.Parse(Console.ReadLine());
+        Console.WriteLine("Insira a terceira nota: ");
+        double num3 = double.Parse(Console.ReadLine());
+        Console.WriteLine("Insira a quarta nota: ");
+        double num4 = double.Parse(Console.ReadLine());
+        
+        double media = (num1 + num2 + num3 + num4) / 4;
+        Console.WriteLine("A média do aluno(a): " + nome + " é " + media);
+        
+        if (media < 7){
+            Console.WriteLine("Você está reprovado(a)!");
+        }
+        else {
+            Console.WriteLine("Parabéns! Você está aprovado(a)!");
+        }
+    }
+}
