@@ -1,0 +1,49 @@
+using System;
+
+class Testes{
+    
+  static void Main() {
+    // aqui está um comentário 
+    Console.WriteLine("Estou iniciando este curso de linguagem de programação em c#");
+    
+    // trabalhando com variáveis
+    int x = 4;
+    double y = 3.3;
+    const double frequencia = 60;
+    
+    double area = x * y;
+    // mostrando o resultado da operação 
+    Console.WriteLine("\nA área do quadrado é: " + area);
+    
+    // como fazer conversão do tipo de uma variável para outro
+        int a = 10;
+        double b = a; // conversão implícita
+        Console.WriteLine("Conversão implícita: " + b);
+        
+        double nota = 8.6;
+        int notaConvertida = (int)nota; // conversão explícita 
+        Console.WriteLine("Conversão explícita: " + notaConvertida);
+        
+        Console.WriteLine("\nDigite qual número é a sua casa: ");
+        string numeroCasa = Console.ReadLine();
+        int numero = int.Parse(numeroCasa);
+        Console.WriteLine("Número é a sua casa {0}", numero);
+        
+        numero = Convert.ToInt32(numeroCasa);
+        Console.WriteLine(numero);
+        
+    // a formatação das variáveis
+        double J = 20.232;
+        Console.WriteLine(J.ToString("F1")); // tipo float
+        Console.WriteLine(J.ToString("C")); // moeda corrente, dolar 
+        Console.WriteLine(J.ToString("P")); // porcentagem 
+        
+    // a leitura de dados
+        Console.WriteLine("Qual é o seu nome?");
+        string nome = Console.ReadLine();
+        Console.WriteLine("Qual é a sua idade?");
+        int idade = int.Parse(Console.ReadLine());
+        
+        Console.WriteLine("O seu nome é {0} e a sua idade é de {1}", nome, idade);
+  }
+}
