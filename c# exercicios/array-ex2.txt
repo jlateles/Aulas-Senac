@@ -1,0 +1,14 @@
+using System;
+class Program {
+    
+  static void Main() {
+    
+    string[] calculos = new string [10];
+    
+    for (int i = 0; i < 10; i++){
+        Console.WriteLine("Insira um cálculo: ");
+        calculos[i] = Console.ReadLine();
+    }
+    Console.WriteLine(calculos.Length);
+  }
+}
