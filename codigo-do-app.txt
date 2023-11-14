@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---------- WebForm1.aspx -----------
 
 <%@ Page Title="" Language="C#" MasterPageFile="~/View/Site1.Master" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="AppVazio.WebForm1" %>
@@ -288,3 +289,295 @@ namespace AppVazio.View
 ---------------------------------------------
 
 SELECT * FROM [aluno]
+=======
+---------- WebForm1.aspx -----------
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/View/Site1.Master" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="AppVazio.WebForm1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+ <form action="/action_page.php">
+  
+    <div class="container">
+    <h1>Cadastra-se</h1>
+        <p>Cadastrar</p>
+    
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <asp:TextBox ID="txbEmail" placeholder="Digite seu email" runat="server"  />
+    <br />
+    
+      <label for="senha"><b>Password</b></label>
+    <asp:TextBox ID="txbSenha" placeholder="Digite sua senha" runat="server" />
+    <br />
+    
+    <label for="senhaRepete"><b>Confirme sua senha</b></label>
+    <asp:TextBox ID="senhaRepete" placeholder="Confirme sua senha" runat="server" />
+    <br />
+
+        <asp:GridView ID="gdvExibir" runat="server" DataSourceID="SqlDataSource1"></asp:GridView>
+        <asp:SqlDataSource runat="server" ID="SqlDataSource1"></asp:SqlDataSource>
+ 
+    <hr>
+    <p>Criando uma conta você concorda com nossos<a href="#">Termos & Privacidade</a>.</p>
+
+        <asp:Button ID="btnEnviar" runat="server" Text="Button" OnClick="btnEnviar_Click()" />
+
+  </div>
+
+    <asp:Label ID="lblMensagem" Text="Resposta" runat="server"></asp:Label>
+  
+  <div class="container signin">
+    <p>Já tem uma conta? <a href="#">Entre aqui</a>.</p>
+  </div>
+</form>
+
+</asp:Content>
+
+
+------------- WebForm1.aspx.cs ----------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+/* chamando o cliente do SQL */
+using System.Data.SqlClient;
+using System.Data;
+using System.Data.Common;
+using System.Diagnostics.Eventing.Reader;
+using System.EnterpriseServices;
+
+namespace AppVazio.View
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+
+        /* Inicio configuraçãoSQL SERVER */
+
+        SqlConnection conexao = new SqlConnection(); /* criando conexao */
+        SqlCommand comandos = new SqlCommand(); /* Executará os comandos */
+        SqlDataAdapter adaptadorSql = new SqlDataAdapter(); /* criando de adaptador para conexao */
+        DataTable tabelaDados = new DataTable(); /* TABELA CONTEND DADOS */
+        DataSet dataSet = new DataSet(); /* objeto de interação com os dados */
+        /* fim configuração SQL Server */
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            /* chave de Connection string, Propriedade Caddeia de Caracteres */
+            conexao.ConnectionString = "Data Source=51DE247989\\SENAC;Initial CatalogL = escola;Integrated Security=true";
+
+        }
+
+        /* clique do botao que faz o envio */
+
+        protected void btnEnviar_Click(object sender, EventArgs e)
+        {
+
+
+            if (txbSenha.Text != txbsenhaRepete.Text)
+            {
+                lblMensagem.Text = "As senhas não conferem! Tente outra vez!";
+                lblMensagem.BackColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                string email = Convert.ToString(txbEmail.Text);
+                tabelaDados = new DataTable(); /* chamada da tabela de dados */
+                comandos.CommandText = "INSERT INTO aluno(email, senha)VALUES(' " + email + " ', ' " + txbSenha.Text.ToString() + " ')";
+                comandos.Connection = conexao; /* execução dos comandos com conexão */
+                comandos.ExecuteNonQuery(); /* execução da query insert */
+                lblMensagem.Text = "Aluno cadastrado!";
+                lblMensagem.BackColor = System.Drawing.Color.Green;
+                ExibirDados();
+            }
+        }
+
+    }
+
+------------------------------ ? --------------------
+   /* public void ExibirDados()
+        {
+            dataSet = new DataSet();
+            comandos.CommandText = "SELECT * FROM alunos WHERE email= ' " + txbEmail.Text + " '";
+            comandos.Connection = conexao;
+            adaptadorSql = new SqlDataAdapter(comandos);
+            adaptadorSql.Fill(dataSet);
+            comandos.ExecuteNonQuery();
+            gdvExibir.DataSource = dataSet;
+            gdvExibir.DataBind();
+            conexao.Close();
+        }
+  */
+    }
+}
+
+-----------------------------------------------------
+
+------------------Login.aspx------------------
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/View/Site1.Master" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="AppVazio.View.WebForm3" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+<form action="/action_page.php">
+  
+    <div class="container">
+    <h1>Login</h1>
+    
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <asp:TextBox ID="txbEmail" placeholder="Digite seu email" runat="server"  />
+    <br />
+    
+    <label for="senha"><b>Password</b></label>
+    <asp:TextBox ID="txbSenha" placeholder="Digite sua senha" runat="server" />
+    <br />
+
+    <asp:GridView ID="gdvExibir" runat="server" DataSourceID="SqlDataSource1"></asp:GridView>
+        
+    <hr>
+
+    <button type="submit" class="registerbtn">Entrar</button>
+  </div>
+
+    <asp:Label ID="lblMensagem" Text="Resposta" runat="server"></asp:Label>
+</form>
+
+</asp:Content>
+
+-------------------- login.aspx.cs ------------------
+
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Net.NetworkInformation;
+
+namespace AppVazio.View
+{
+    public partial class Login : System.Web.UI.Page
+    {
+        /* inicio configuração SQL server */
+        SqlConnection conexao = new SqlConnection(); 
+        SqlCommand comandos = new SqlCommand(); 
+        SqlDataAdapter adaptadorSql = new SqlDataAdapter();
+        DataTable tabelaDados = new DataTable(); 
+        DataSet dataSet = new DataSet();
+        /* fim configuração SQL Server */
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            conexao.ConnectionString = "Data Source=51DE247989\\SENAC;Initial CatalogL = escola;Integrated Security=true";
+            conexao.Open();
+        }
+
+
+        public void checarUsuario()
+        {
+            dataSet = new DataSet();
+            comandos.CommandText = "INSERT INTO aluno(email, senha)VALUES(' " + txbEmail.Text.ToString() + " ', ' " + txbSenha.Text.ToString() + " ')";
+            comandos.Connection = conexao;
+            adaptadorSql = new SqlDataAdapter(comandos);
+            adaptadorSql.Fill(dataSet);
+            comandos.ExecuteNonQuery();
+            /* carregar o conteudo em um objeto */
+            SqlDataReader dados = comandos.ExecuteReader();
+            /* dados ["ide_aluno"], dados["email"], dados["senha"]*/
+
+            if (dados.HasRows)
+            {
+                dados.Read(); /*faz a leitura do que recebeuem dados */
+                string dadosEmail = dados["email"].ToString();
+                string dadosId = dados["id_aluno"].ToString();
+
+                /* cria um cookie com os dados de email do banco*/
+                HttpCookie cookieEmail = new HttpCookie("cookieEmail", dadosEmail);
+;               Response.Cookies.Add(cookieEmail); /*adiciona o cookie a seção*/
+
+                /* cria um cookie com o id_aluno do banco*/
+                HttpCookie cookieId = new HttpCookie("cookieId", dadosId);
+                Response.Cookies.Add(cookieId);
+
+                Response.Redirect("");
+            }
+            else
+            {
+                lblMensagem.Text = "Email ou senha inválido(s)!";
+            }
+        
+        }
+    }
+}
+
+---------------------------? ------------------------
+
+-------- cadastrados.aspx -----------------
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/View/Site1.Master" AutoEventWireup="true" CodeBehind="Cadastrados.aspx.cs" Inherits="AppVazio.View.WebForm2" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+ <asp:GridView ID="gdvExibir" runat="server" DataSourceID="SqlDataSource1"></asp:GridView>
+
+</asp:Content>
+
+
+--------------- Cadastrados.aspx.cs -----------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace AppVazio.View
+{
+    public partial class Cadastrados : System.Web.UI.Page
+    {
+        /* inicio configuração SQL server */
+
+        SqlConnection conexao = new SqlConnection(); /* criando conexao */
+        SqlCommand comandos = new SqlCommand(); /* Executará os comandos */
+        SqlDataAdapter adaptadorSql = new SqlDataAdapter(); /* criando de adaptador para conexao */
+        DataTable tabelaDados = new DataTable(); /* TABELA CONTEND DADOS */
+        DataSet dataSet = new DataSet(); /* objeto de interação com os dados */
+        /* fim configuração SQL Server */
+
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            /* chave de Connection string, Propriedade Caddeia de Caracteres */
+            conexao.ConnectionString = "Data Source=51DE247989\\SENAC;Initial CatalogL = escola;Integrated Security=true";
+            conexao.Open();
+
+            dataSet = new DataSet();
+            comandos.CommandText = "INSERT INTO aluno(email, senha)VALUES(' " + txbEmail.Text.ToString() + " ', ' " + txbSenha.Text.ToString() + " ')";
+            comandos.Connection = conexao;
+            adaptadorSql = new SqlDataAdapter(comandos);
+            adaptadorSql.Fill(dataSet);
+            comandos.ExecuteNonQuery();
+            gdvExibir.DataSource = dataSet;
+            gdvExibir.DataBind();
+            conexao.Close();
+
+
+        }
+    }
+}
+
+---------------------------------------------
+
+SELECT * FROM [aluno]
+>>>>>>> a0c7cce0427567f7ff5d4a54c1824f913002ce50
